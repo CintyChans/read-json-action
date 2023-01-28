@@ -29,7 +29,7 @@ jobs:
       uses: ./
       with: 
         file_path: 'package.json'
-        prop_path: 'scripts[text]'
+        prop_path: 'scripts.text'
 
     - run: |
         echo ${{steps.repository_type.outputs.value}}
