@@ -10,26 +10,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-      with:
-        path: "./"
 
-    - name: get properties
-      id: json_properties
-      uses: ./
-      with: 
-        file_path: 'package.json'
+          
+    - name: n 
+      shell: python 
+      run: "import json;f=open('package.json');obj=json.load(f); print(obj['keywords']);f.close()"
 
-    - run: |
-        echo ${{steps.json_properties.outputs.name}}
-        echo ${{steps.json_properties.outputs.scripts}}
-        echo ${{steps.json_properties.outputs.keywords}}
-        
-    - name: get specified property
-      id: repository_type
-      uses: ./
-      with: 
-        file_path: 'package.json'
-        prop_path: 'scripts.text'
 
-    - run: |
-        echo ${{steps.repository_type.outputs.value}}
+
